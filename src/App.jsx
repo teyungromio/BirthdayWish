@@ -2,7 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [blown, setBlown] = useState(false);
   const [opened, setOpened] = useState(false);
+
+  const blowCandles = () => {
+    setBlown(true);
+  };
 
   const openWish = () => {
     setOpened(true);
@@ -11,50 +16,107 @@ function App() {
   return (
     <div className="app">
 
-      <div className="background-hearts">
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-      </div>
+      <div className="ambient-glow"></div>
 
-      <main className={`card ${opened ? "opened" : ""}`}>
+      {!opened ? (
+        <main className="card intro-card">
 
-        {!opened ? (
-          <div className="intro-screen">
+          <div className="cake-area">
 
-            <div className="cake">🎂</div>
+            <div className="cake">
 
-            <p className="top-text">
-              Uzi turns 19!
-            </p>
+              <div className="candles">
 
-            <h1>
-              Happy Birthday
-              <span>Uzi!</span>
-            </h1>
+                <div className="candle">
+                  <div className={`flame ${blown ? "off" : ""}`}></div>
+                  <div className="wick"></div>
+                  <div className="candle-body"></div>
+                </div>
 
-            <p className="intro">
-              Open it already!!!
-            </p>
+                <div className="candle">
+                  <div className={`flame ${blown ? "off" : ""}`}></div>
+                  <div className="wick"></div>
+                  <div className="candle-body"></div>
+                </div>
 
-            <button className="open-button" onClick={openWish}>
-              Open
-              <span>→</span>
-            </button>
+                <div className="candle">
+                  <div className={`flame ${blown ? "off" : ""}`}></div>
+                  <div className="wick"></div>
+                  <div className="candle-body"></div>
+                </div>
 
-            <p className="hint">
-              Click the button.
-            </p>
+              </div>
+
+              <div className="cake-top">
+                <div className="cream"></div>
+              </div>
+
+              <div className="cake-middle"></div>
+
+              <div className="cake-bottom">
+                <div className="cake-highlight"></div>
+              </div>
+
+              {blown && (
+                <div className="smoke">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              )}
+
+            </div>
 
           </div>
-        ) : (
-          <div className="wish-screen">
 
-            <div className="celebration">
-              
-            </div>
+          <p className="top-text">
+            Uzi turns 19!
+          </p>
+
+          <h1>
+            Happy Birthday
+            <span>Uzi!</span>
+          </h1>
+
+          <p className="intro">
+            Make a wish and blow the candles.
+          </p>
+
+          {!blown ? (
+            <>
+              <button
+                className="blow-button"
+                onClick={blowCandles}
+              >
+                Blow the Candles
+              </button>
+
+              <p className="hint">
+                
+              </p>
+            </>
+          ) : (
+            <>
+              <button
+                className="open-button"
+                onClick={openWish}
+              >
+                Open
+                <span>→</span>
+              </button>
+
+              <p className="hint">
+                The candles are out.
+              </p>
+            </>
+          )}
+
+        </main>
+      ) : (
+
+        <main className="card wish-card">
+
+          <div className="wish-screen">
 
             <p className="top-text">
               Uzi turns 19!
@@ -91,14 +153,12 @@ function App() {
 
             </div>
 
-            <div className="bottom-decoration">
-            
-            </div>
+            <div className="bottom-decoration"></div>
 
           </div>
-        )}
 
-      </main>
+        </main>
+      )}
 
     </div>
   );
