@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  overflow: hidden;
+  position: relative;
+
+  background:
+    radial-gradient(circle at 15% 20%, #ffdce8 0%, transparent 30%),
+    radial-gradient(circle at 85% 80%, #fbcfe0 0%, transparent 30%),
+    linear-gradient(135deg, #fff0f5, #ffdce8, #f8c9da);
+
+  color: #6d3b4c;
+}
+
+/* Floating hearts */
+
+.background-hearts span {
+  position: absolute;
+  color: rgba(255, 105, 145, 0.15);
+  font-size: 70px;
+  animation: float 7s infinite ease-in-out;
+}
+
+.background-hearts span:nth-child(1) {
+  left: 8%;
+  top: 15%;
+}
+
+.background-hearts span:nth-child(2) {
+  left: 85%;
+  top: 10%;
+  animation-delay: 1s;
+}
+
+.background-hearts span:nth-child(3) {
+  left: 12%;
+  bottom: 12%;
+  animation-delay: 2s;
+}
+
+.background-hearts span:nth-child(4) {
+  right: 10%;
+  bottom: 15%;
+  animation-delay: 3s;
+}
+
+.background-hearts span:nth-child(5) {
+  left: 50%;
+  top: 5%;
+  animation-delay: 4s;
+}
+
+/* Main card */
+
+.card {
+  width: min(680px, 100%);
+  min-height: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 55px 45px;
+
+  text-align: center;
+
+  border-radius: 35px;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 25px 70px rgba(190, 100, 130, 0.22),
+    inset 0 1px rgba(255, 255, 255, 0.9);
+
+  animation: cardAppear 1s ease;
+}
+
+/* Screens */
+
+.intro-screen,
+.wish-screen {
+  width: 100%;
+}
+
+/* Cake */
+
+.cake {
+  font-size: 90px;
+  margin-bottom: 20px;
+
+  animation: cakeFloat 3s ease-in-out infinite;
+
+  filter: drop-shadow(
+    0 10px 15px rgba(200, 90, 120, 0.18)
+  );
+}
+
+/* Small heading */
+
+.top-text {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+
+  color: #b45c78;
+
+  margin-bottom: 18px;
+}
+
+/* Main heading */
+
+h1 {
+  font-size: clamp(45px, 8vw, 75px);
+  line-height: 1.05;
+  font-weight: 700;
+
+  color: #713d50;
+
+  margin-bottom: 25px;
+
+  text-shadow: 0 5px 20px rgba(170, 80, 110, 0.12);
+}
+
+h1 span {
+  display: block;
+  margin-top: 8px;
+
+  background: linear-gradient(
+    90deg,
+    #e889a8,
+    #c95d83,
+    #e889a8
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* Intro text */
+
+.intro {
+  max-width: 480px;
+  margin: 0 auto 35px;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  color: #875667;
+}
+
+/* Button */
+
+.open-button {
+  border: none;
+  outline: none;
+
+  padding: 17px 30px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #e88ca8,
+    #d86f91
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(205, 100, 135, 0.28);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.open-button span {
+  margin-left: 12px;
+  font-size: 20px;
+}
+
+.open-button:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  box-shadow:
+    0 15px 35px rgba(205, 100, 135, 0.35);
+}
+
+.open-button:active {
+  transform: scale(0.97);
+}
+
+.hint {
+  margin-top: 25px;
+
+  font-size: 12px;
+
+  color: #b6788c;
+
+  opacity: 0.7;
+}
+
+/* Birthday screen */
+
+.celebration {
+  font-size: 28px;
+  letter-spacing: 8px;
+
+  margin-bottom: 25px;
+
+  animation: celebration 2s ease infinite;
+}
+
+.wish-screen h1 {
+  margin-bottom: 15px;
+}
+
+.wish-screen h1 span {
+  display: inline;
+}
+
+/* Divider */
+
+.divider {
+  margin: 15px 0 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  height: 1px;
+
+  flex: 1;
+
+  background: #e8b5c5;
+}
+
+.divider span {
+  font-size: 22px;
+
+  color: #d86f91;
+}
+
+/* Birthday message */
+
+.message {
+  max-width: 530px;
+
+  margin: auto;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #7d5262;
+}
+
+.message p {
+  margin-bottom: 17px;
+}
+
+.message h2 {
+  margin-top: 28px;
+
+  font-size: 23px;
+
+  color: #c85d82;
+}
+
+/* Bottom */
+
+.bottom-decoration {
+  margin-top: 30px;
+
+  letter-spacing: 8px;
+
+  color: #d87596;
+
+  opacity: 0.8;
+}
+
+/* Animations */
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cakeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+@keyframes celebration {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .app {
+    padding: 15px;
+  }
+
+  .card {
+    min-height: 620px;
+    padding: 40px 23px;
+    border-radius: 27px;
+  }
+
+  .cake {
+    font-size: 70px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  .intro {
+    font-size: 15px;
+  }
+
+  .message {
+    font-size: 15px;
+  }
+
+  .celebration {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+}
